@@ -1,0 +1,20 @@
+{
+    "name": "aircms/aircms-php",
+    "description": "Aircms PHP API client",
+    "authors": [
+        {
+            "name": "Aircms",
+            "email": "support@aircms.app"
+        }
+    ],
+    "require": {
+        "php": "^7.3|^8.0",
+        "guzzlehttp/guzzle": "^7.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Aircms\\": "src"
+        }
+    },
+    "minimum-stability": "dev"
+}
