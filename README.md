@@ -27,7 +27,7 @@ use Aircms\Aircms;
 
 $aircms = new Aircms;
 
-$aircms->setAuthToken('<api_token>');
+$aircms->setApiKey('<api_key>');
 ```
 
 #### Get all pages
@@ -68,17 +68,8 @@ $aircms->getPage('startpage');
 $aircms->getPageFields('startpage');
 
 // [
-//     'hero_text' => 'Welcome',
 //     'sv' => [
 //         'hero_text' => 'Välkommen'
 //     ]
-// ]
-
-$aircms->getPageFields('startpage', [
-    'locale' => 'sv'
-]);
-
-// [
-//     'hero_text' => 'Välkommen'
 // ]
 ```

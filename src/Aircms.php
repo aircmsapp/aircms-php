@@ -11,12 +11,12 @@ class Aircms
     /**
      * @var string
      */
-    CONST BASE_API_URL = 'https://aircms.app/api/v1/';
+    CONST BASE_API_URL = 'https://aircms.test/api/v1/';
 
     /**
      * @var string
      */
-    protected $token;
+    protected $apiKey;
 
     /**
      * @var \GuzzleHttp\Client
@@ -30,9 +30,9 @@ class Aircms
         ]);
     }
 
-    public function setAuthToken(string $token): static
+    public function setApiKey(string $apiKey): static
     {
-        $this->token = $token;
+        $this->apiKey = $apiKey;
 
         return $this;
     }
@@ -40,15 +40,16 @@ class Aircms
     public function request($request): array
     {
         $response = $this->client->request('GET', $request->endpoint(), [
+            'verify' => false,
             'query' => method_exists($request, 'params') ? $request->params() : [],
             'headers' => [
-                'Authorization' => 'Bearer ' . $this->token,
+                'Authorization' => 'Bearer ' . $this->apiKey,
                 'Accept' => 'application/json',
             ],
         ]);
 
-        if (! $this->token) {
-            throw new Exception('Aircms auth token missing.');
+        if (! $this->apiKey) {
+            throw new Exception('Aircms api key is not set.');
         }
 
         return $request->response(json_decode($response->getBody()->getContents(), true));
