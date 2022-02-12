@@ -11,7 +11,7 @@ class Aircms
     /**
      * @var string
      */
-    CONST BASE_API_URL = 'https://aircms.test/api/v1/';
+    CONST BASE_API_URL = 'https://aircms.app/api/v1/';
 
     /**
      * @var string
